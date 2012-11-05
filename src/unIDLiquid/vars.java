@@ -2,7 +2,7 @@ package unIDLiquid;
 
 import org.powerbot.game.api.wrappers.Tile;
 
-public class vars {
+public class Vars {
 	/*Tiles*/
 	public static final Tile T_FREM_BANKER = new Tile(3448,3720,0);
 	public static final Tile T_BARREL = new Tile(3364,3379,0);

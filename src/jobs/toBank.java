@@ -8,13 +8,13 @@ import org.powerbot.game.api.wrappers.Tile;
 import org.powerbot.game.api.wrappers.node.Item;
 import org.powerbot.game.api.wrappers.widget.Widget;
 
-import P3aches.util;
+import P3aches.Util;
 
 import unIDLiquid.UnidentifiedLiquid;
-import unIDLiquid.vars;
+import unIDLiquid.Vars;
 import unIDLiquid.UnidentifiedLiquid.States;
 
-public class toBank extends Node{
+public class ToBank extends Node{
 	
 	public Widget tabs;
 	private Tile[] bankPath = {new Tile(3448,3697,0),new Tile(3449,3713,0)};
@@ -22,7 +22,6 @@ public class toBank extends Node{
 
 	@Override
 	public boolean activate() {
-		// TODO Auto-generated method stub
 		if(UnidentifiedLiquid.currentState == States.TO_BANK)
 			return true;
 		return false;
@@ -30,22 +29,19 @@ public class toBank extends Node{
 
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
-		tabs = new Widget(vars.TABS);
+		tabs = new Widget(Vars.TABS);
 		
-		tabs.getChild(vars.EQUP_INV).click(true);
+		tabs.getChild(Vars.EQUP_INV).click(true);
 		Task.sleep(100,200);
-		Item ring = Equipment.getItem(vars.DUNG_RING);
-		if(ring != null && Players.getLocal().getLocation().distance(vars.T_BARREL)<10)
-		{
+		Item ring = Equipment.getItem(Vars.DUNG_RING);
+		if(ring != null && Players.getLocal().getLocation().distance(Vars.T_BARREL)<10){
 			ring.getWidgetChild().interact("Teleport to Daemonheim");			
-			while(Players.getLocal().getLocation().distance(vars.T_DUNG)>20)
+			while(Players.getLocal().getLocation().distance(Vars.T_DUNG)>20)
 				Task.sleep(400,500);
 			tripCnt++;
 		}
-		else if(Players.getLocal().getLocation().distance(vars.T_DUNG)<20)
-		{
-			util.walkPath(bankPath, false);
+		else if(Players.getLocal().getLocation().distance(Vars.T_DUNG)<20){
+			Util.walkPath(bankPath, false);
 			Task.sleep(500,700);
 			UnidentifiedLiquid.currentState = States.BANK;
 

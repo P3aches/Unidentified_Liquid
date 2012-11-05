@@ -11,24 +11,22 @@ import org.powerbot.game.api.wrappers.Tile;
 import org.powerbot.game.api.wrappers.node.Item;
 import org.powerbot.game.api.wrappers.widget.Widget;
 
-import P3aches.util;
+import P3aches.Util;
 
 import unIDLiquid.UnidentifiedLiquid;
 import unIDLiquid.UnidentifiedLiquid.States;
-import unIDLiquid.vars;
+import unIDLiquid.Vars;
 
-public class toDigSite extends Node{
-
+public class ToDigSite extends Node{
+	
 	Item pend;
 	Widget tabs;
 	Camera camera;
 	private Tile[] unidBarrelPath = {new Tile(3342,3443,0),new Tile(3326,3432,0),new Tile(3330,3415,0)
 	,new Tile(3330,3397,0),new Tile(3346,3392,0),new Tile(3356,3385,0), new Tile(3364,3379,0)};
 
-	
 	@Override
 	public boolean activate() {
-		// TODO Auto-generated method stub
 		if(UnidentifiedLiquid.currentState == States.TO_DIG_SITE)
 			return true;
 		return false;
@@ -36,35 +34,30 @@ public class toDigSite extends Node{
 
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
 		if(Bank.isOpen())
 			Bank.close();
-		if(Players.getLocal().getLocation().distance(vars.T_FREM_BANKER)<10)
-		{
-			tabs = new Widget(vars.TABS);
-			if(tabs != null)
-			{
-				tabs.getChild(vars.EQUP_INV).click(true);
+		if(Players.getLocal().getLocation().distance(Vars.T_FREM_BANKER)<10){
+			tabs = new Widget(Vars.TABS);
+			if(tabs != null){
+				tabs.getChild(Vars.EQUP_INV).click(true);
 				Task.sleep(200,400);
 			}
-			pend = Equipment.getItem(vars.DIG_PEND);
-			if(pend != null)
-			{
+			pend = Equipment.getItem(Vars.DIG_PEND);
+			if(pend != null){
 				pend.getWidgetChild().interact("Rub");
 				Task.sleep(2200,2500);
 			}
 		}
-		util.walkPath(unidBarrelPath, false);
+		Util.walkPath(unidBarrelPath, false);
 		Task.sleep(500,800);		
-		util.turnTo(vars.T_BARREL, camera);
-		Mouse.click(vars.T_BARREL.getCentralPoint(),true);
+		Util.turnTo(Vars.T_BARREL, camera);
+		Mouse.click(Vars.T_BARREL.getCentralPoint(),true);
 		Task.sleep(500,800);
-		if(Players.getLocal().getLocation().distance(vars.T_BARREL) == 0)
-		{
+		if(Players.getLocal().getLocation().distance(Vars.T_BARREL) == 0){
 			UnidentifiedLiquid.currentState = States.FILL_VIALS;
 		}
-		
-		
+
+
 	}
 
 }

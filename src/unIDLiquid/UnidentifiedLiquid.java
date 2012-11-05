@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import jobs.bank;
-import jobs.fillVials;
-import jobs.toBank;
-import jobs.toDigSite;
+import jobs.BankItems;
+import jobs.FillVials;
+import jobs.ToBank;
+import jobs.ToDigSite;
 
 import org.powerbot.core.event.listeners.PaintListener;
 import org.powerbot.core.script.ActiveScript;
@@ -22,7 +22,7 @@ import org.powerbot.game.api.methods.input.Mouse;
 import org.powerbot.game.api.methods.input.Mouse.Speed;
 import org.powerbot.game.api.util.Random;
 
-import P3aches.util;
+import P3aches.Util;
 
 @Manifest(authors = { "P3aches" }, name = "Unidentified Liquid" )
 public class UnidentifiedLiquid extends ActiveScript implements PaintListener {
@@ -37,7 +37,8 @@ public class UnidentifiedLiquid extends ActiveScript implements PaintListener {
         	BANK,
         	TO_DIG_SITE,
         	FILL_VIALS,
-        	TO_BANK;
+        	TO_BANK,
+        	OUT_OF_SUPPLIES;
         }
 
         public final void provide(final Node... jobs) {
@@ -55,10 +56,10 @@ public class UnidentifiedLiquid extends ActiveScript implements PaintListener {
 
         @Override
         public void onStart() {        		
-            provide(new bank());
-            provide(new toDigSite());
-            provide(new fillVials());
-            provide(new toBank());
+            provide(new BankItems());
+            provide(new ToDigSite());
+            provide(new FillVials());
+            provide(new ToBank());
                 Mouse.setSpeed(Speed.FAST);
         }
 
@@ -70,6 +71,11 @@ public class UnidentifiedLiquid extends ActiveScript implements PaintListener {
                                 jobContainer.set(job);
                                 getContainer().submit(job);
                                 job.join();
+                                if(currentState == States.OUT_OF_SUPPLIES)
+                                {
+                                	System.out.println("Out Of Supplies");
+                                	stop();
+                                }
                         }
                 }
                 return Random.nextInt(10, 50);
@@ -84,14 +90,14 @@ public class UnidentifiedLiquid extends ActiveScript implements PaintListener {
 			g.fillRect(7, 344, 208, 44);
 			g.setColor(Color.white);
 
-			g.drawString("Time Running "+ util.getRuntimeString(elapsedTime), 10, 357);	 		
-			g.drawString("# Trips = "+ toBank.tripCnt +"   Trips/hour = "+((toBank.tripCnt*3600000)/elapsedTime), 10, 372);			
-			g.drawString("# of Unid Liquid = "+fillVials.unIdVialCount+ "   #/hour = "+(fillVials.unIdVialCount*3600000)/elapsedTime, 10, 387);
+			g.drawString("Time Running "+ Util.getRuntimeString(elapsedTime), 10, 357);	 		
+			g.drawString("# Trips = "+ ToBank.tripCnt +"   Trips/hour = "+((ToBank.tripCnt*3600000)/elapsedTime), 10, 372);			
+			g.drawString("# of Unid Liquid = "+FillVials.unIdVialCount+ "   #/hour = "+((FillVials.unIdVialCount*3600000)/elapsedTime), 10, 387);
 			
 			g.setColor(Color.black);
 			g.fillRect(7, 400, 300, 44);
 			g.setColor(Color.white);
-			g.drawString("Equipment Needed: Dung Ring Equipted ", 10, 415);	 		
+			g.drawString("Equipment Needed: Dung Ring Equipped ", 10, 415);	 		
 			g.drawString("            Dig Site Necklaces & Unfilled vials in Bank ", 10, 427);	 		
 			g.drawString("Start either in Dig Site or Daemonheim Bank ", 10, 439);	 		
 
