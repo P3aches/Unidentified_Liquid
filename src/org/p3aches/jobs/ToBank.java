@@ -12,10 +12,8 @@ import org.powerbot.game.api.wrappers.Tile;
 import org.powerbot.game.api.wrappers.node.Item;
 import org.powerbot.game.api.wrappers.widget.Widget;
 
-
-
 public class ToBank extends Node{
-	
+
 	public Widget tabs;
 	private Tile[] bankPath = {new Tile(3448,3697,0),new Tile(3449,3713,0)};
 	public static int tripCnt = 0;
@@ -30,7 +28,7 @@ public class ToBank extends Node{
 	@Override
 	public void execute() {
 		tabs = new Widget(Vars.TABS);
-		
+
 		tabs.getChild(Vars.EQUP_INV).click(true);
 		Task.sleep(100,200);
 		Item ring = Equipment.getItem(Vars.DUNG_RING);
@@ -44,9 +42,6 @@ public class ToBank extends Node{
 			Util.walkPath(bankPath, false);
 			Task.sleep(500,700);
 			UnidentifiedLiquid.currentState = States.BANK;
-
 		}
-
 	}
-
 }

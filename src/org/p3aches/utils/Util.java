@@ -38,7 +38,6 @@ public class Util {
 			if (n != null) {
 				n.randomize(2, 2).clickOnMap();
 				Task.sleep(600,800);
-
 			}
 		}
 		return false;
@@ -54,20 +53,4 @@ public class Util {
 		}
 		return null;
 	}
-	public static String getRuntimeString(long elapsed) {
-		final int days = (int) elapsed / 86400000;
-		long remainder = elapsed % 86400000;
-		final int hours = (int) elapsed / 3600000;
-		remainder = elapsed % 3600000;
-		final int minutes = (int) remainder / 60000;
-		remainder = remainder % 60000;
-		final int seconds = (int) remainder / 1000;
-
-		final String dd = days < 10 ? "0" + days : Integer.toString(days);
-		final String hh = hours < 10 ? "0" + hours : Integer.toString(hours);
-		final String mm = minutes < 10 ? "0" + minutes : Integer.toString(minutes);
-		final String ss = seconds < 10 ? "0" + seconds : Integer.toString(seconds);
-		return dd + ":" + hh + ":" + mm + ":" + ss;
-	}
-
 }

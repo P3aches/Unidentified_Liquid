@@ -15,9 +15,8 @@ import org.powerbot.game.api.wrappers.Tile;
 import org.powerbot.game.api.wrappers.node.Item;
 import org.powerbot.game.api.wrappers.widget.Widget;
 
-
 public class ToDigSite extends Node{
-	
+
 	Item pend;
 	Widget tabs;
 	Camera camera;
@@ -55,8 +54,5 @@ public class ToDigSite extends Node{
 		if(Players.getLocal().getLocation().distance(Vars.T_BARREL) == 0){
 			UnidentifiedLiquid.currentState = States.FILL_VIALS;
 		}
-
-
 	}
-
 }

@@ -12,7 +12,6 @@ import org.powerbot.game.api.wrappers.interactive.NPC;
 import org.powerbot.game.api.wrappers.node.Item;
 import org.powerbot.game.api.wrappers.widget.Widget;
 import org.powerbot.game.api.wrappers.widget.WidgetChild;
-
 import org.p3aches.unidliquid.*;
 import org.p3aches.unidliquid.UnidentifiedLiquid.States;
 import org.p3aches.utils.*;
@@ -26,7 +25,6 @@ public class BankItems extends Node{
 	private WidgetChild neck;
 	public boolean needPend;
 	Camera camera;
-
 
 	@Override
 	public boolean activate() {
