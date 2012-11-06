@@ -1,4 +1,4 @@
-package unIDLiquid;
+package org.p3aches.unidliquid;
 
 import org.powerbot.game.api.wrappers.Tile;
 

@@ -1,4 +1,4 @@
-package jobs;
+package org.p3aches.jobs;
 
 import org.powerbot.core.script.job.Task;
 import org.powerbot.core.script.job.state.Node;
@@ -7,9 +7,11 @@ import org.powerbot.game.api.methods.node.SceneEntities;
 import org.powerbot.game.api.methods.tab.Inventory;
 import org.powerbot.game.api.wrappers.node.Item;
 import org.powerbot.game.api.wrappers.node.SceneObject;
-import unIDLiquid.UnidentifiedLiquid;
-import unIDLiquid.Vars;
-import unIDLiquid.UnidentifiedLiquid.States;
+
+import org.p3aches.unidliquid.*;
+import org.p3aches.unidliquid.UnidentifiedLiquid.States;
+
+
 
 public class FillVials extends Node{
 

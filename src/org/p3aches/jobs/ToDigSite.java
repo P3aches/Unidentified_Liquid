@@ -1,5 +1,9 @@
-package jobs;
+package org.p3aches.jobs;
 
+import org.p3aches.unidliquid.UnidentifiedLiquid;
+import org.p3aches.unidliquid.UnidentifiedLiquid.States;
+import org.p3aches.unidliquid.Vars;
+import org.p3aches.utils.Util;
 import org.powerbot.core.script.job.Task;
 import org.powerbot.core.script.job.state.Node;
 import org.powerbot.game.api.methods.input.Mouse;
@@ -11,11 +15,6 @@ import org.powerbot.game.api.wrappers.Tile;
 import org.powerbot.game.api.wrappers.node.Item;
 import org.powerbot.game.api.wrappers.widget.Widget;
 
-import P3aches.Util;
-
-import unIDLiquid.UnidentifiedLiquid;
-import unIDLiquid.UnidentifiedLiquid.States;
-import unIDLiquid.Vars;
 
 public class ToDigSite extends Node{
 	

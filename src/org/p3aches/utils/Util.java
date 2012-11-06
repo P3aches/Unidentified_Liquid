@@ -1,4 +1,4 @@
-package P3aches;
+package org.p3aches.utils;
 
 import org.powerbot.core.script.job.Task;
 import org.powerbot.game.api.methods.Calculations;

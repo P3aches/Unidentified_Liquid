@@ -1,4 +1,4 @@
-package jobs;
+package org.p3aches.jobs;
 
 import org.powerbot.core.script.job.Task;
 import org.powerbot.core.script.job.state.Node;
@@ -13,10 +13,10 @@ import org.powerbot.game.api.wrappers.node.Item;
 import org.powerbot.game.api.wrappers.widget.Widget;
 import org.powerbot.game.api.wrappers.widget.WidgetChild;
 
-import P3aches.Util;
+import org.p3aches.unidliquid.*;
+import org.p3aches.unidliquid.UnidentifiedLiquid.States;
+import org.p3aches.utils.*;
 
-import unIDLiquid.*;
-import unIDLiquid.UnidentifiedLiquid.States;
 
 public class BankItems extends Node{
 

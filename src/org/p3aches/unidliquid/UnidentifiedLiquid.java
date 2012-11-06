@@ -1,5 +1,4 @@
-package unIDLiquid;
-
+package org.p3aches.unidliquid;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -7,10 +6,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import jobs.BankItems;
-import jobs.FillVials;
-import jobs.ToBank;
-import jobs.ToDigSite;
+
+import org.p3aches.*;
+import org.p3aches.jobs.BankItems;
+import org.p3aches.jobs.FillVials;
+import org.p3aches.jobs.ToBank;
+import org.p3aches.jobs.ToDigSite;
+import org.p3aches.utils.*;
 
 import org.powerbot.core.event.listeners.PaintListener;
 import org.powerbot.core.script.ActiveScript;
@@ -21,8 +23,6 @@ import org.powerbot.game.api.Manifest;
 import org.powerbot.game.api.methods.input.Mouse;
 import org.powerbot.game.api.methods.input.Mouse.Speed;
 import org.powerbot.game.api.util.Random;
-
-import P3aches.Util;
 
 @Manifest(authors = { "P3aches" }, name = "Unidentified Liquid" )
 public class UnidentifiedLiquid extends ActiveScript implements PaintListener {
